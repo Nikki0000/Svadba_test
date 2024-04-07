@@ -1,0 +1,7 @@
+Идентификатор развертывания
+AKfycbwIJWRmrjB6awX7SuY3QiW6S_Zyh1mGm6KlRei1_7Z9qtOxTjzSc2BYLlIMEfVTvDCc
+
+
+Веб-приложение
+URL
+https://script.google.com/macros/s/AKfycbwIJWRmrjB6awX7SuY3QiW6S_Zyh1mGm6KlRei1_7Z9qtOxTjzSc2BYLlIMEfVTvDCc/exec

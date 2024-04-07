@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormsToGoogleTable</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Butterfly+Kids&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Новый блок с названием "Свадьба Никиты и Анны" -->
+        <div class="wedding-title">
+            <h1>Свадьба!</h1>
+            <h1>Никиты</h1>
+            <h1>и Анны</h1>
+        </div>
+
+
+        <!-- Новый блок с описанием -->
+        <div class="wedding-description">
+            <p>Дорогие гости!</p>
+            <p>Спешим сообщить радостную новость!</p>
+            <p>Мы женимся!</p>
+            <p>Мы очень хотим оказаться в окружении самых близких и дорогих для нас людей</p>
+            <p>Ждем Вас!</p>
+            <p>27 июля | Суббота</p>
+        </div>
+
+        <!-- Новый блок с описанием места проведения -->
+        <div class="venue-description">
+            <h2>Место проведения</h2>
+            <div class="venue-section">
+                <div class="venue-photo">
+                    <p><strong>Регистрация брака</strong></p>
+                    <img src="unnamed.jpg" alt="Venue Photo 1">
+                    <p>Большой Староданиловский переулок, 5</p>
+                    <p>Ориентир: ресторан Даниловский</p>
+                </div>
+                <div class="venue-photo">
+                    <p><strong>Ресторан</strong></p>
+                    <img src="caption (1).jpg" alt="Venue Photo 2">
+                    <p>Люберцы ул. Гоголя, 27А</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="event-timings">
+            <h2>Тайминги мероприятия</h2>
+            <div class="timing-row">
+                <div class="time">15:00</div>
+                <div class="separator"></div>
+                <div class="description">Регистрация</div>
+            </div>
+            <div class="timing-row">
+                <div class="time">15:40</div>
+                <div class="separator"></div>
+                <div class="description">Фуршет, фотосессия</div>
+            </div>
+            <div class="timing-row">
+                <div class="time">17:30</div>
+                <div class="separator"></div>
+                <div class="description">Ресторан</div>
+            </div>
+            <!-- Добавьте остальные тайминги здесь, если необходимо -->
+        </div>
+
+        <form action="#" class="login-form" name="submit-to-google-sheet">
+            <h2>Форма для заполнения данных</h2>
+
+            <input type="text" name="Name" id="Name" autocomplete="off" placeholder="Enter your name">
+
+            <input type="email" name="email" id="email" autocomplete="off" placeholder="Enter your email" required>
+
+            <input type="password" name="password" id="password" autocomplete="off" placeholder="Enter your password"
+                required>
+
+            <input type="presence" name="presence" id="presence" autocomplete="off"
+                placeholder="Подтвердите ваше присутствие да/нет" required>
+
+            <button type="submit">Отправить данные</button>
+
+            <span id="sendText"></span>
+
+        </form>
+
+
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwIJWRmrjB6awX7SuY3QiW6S_Zyh1mGm6KlRei1_7Z9qtOxTjzSc2BYLlIMEfVTvDCc/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        const sendText = document.getElementById('sendText')
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    sendText.innerHTML = "Спасибо! Ваши данные отправлены успешно."
+                    setTimeout(function () {
+                        sendText.innerHTML = ""
+                    }, 1000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+
+</html>

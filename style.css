@@ -1,0 +1,285 @@
+/* Общие стили, которые остаются неизменными для всех размеров экрана */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    /*background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url(photoone.jpg) center/cover;*/
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-family: 'Cormorant Garamond'; /* Добавим универсальный шрифт */
+}
+
+.container {
+    width: 100%;
+    max-width: 800px; /* Ограничим ширину контейнера для более крупных экранов */
+    margin: 50px auto 50px; /* Добавим отступ сверху */
+    position: relative; /* Для корректной работы позиционирования заголовка */
+    margin-bottom: 50px; /* Добавим отступ снизу */
+}
+
+.header {
+    color: rgb(0, 0, 0);
+    margin-bottom: 50px; /* Уменьшим отступ, чтобы сохранить пространство */
+    text-align: center; /* Центрируем текст */
+}
+
+.login-form {
+    background: rgba(0,0,0,.8);
+    padding: 40px;
+    border-radius: 30px;
+    width: 90%; /* Добавим ширину формы */
+    max-width: 400px; /* Установим максимальную ширину формы */
+    margin: 20px auto; /* Центрируем форму по горизонтали */
+}
+
+
+.login-form h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    outline: none;
+    border: none;
+}
+
+.login-form button {
+    width: 100%;
+    height: 35px;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.login-form button:hover {
+    transform: scale(1.1);
+    background: #eeaf85;
+    color: #fff;
+}
+
+#sendText {
+    color: green;
+    margin-top: 15px;
+    display: block;
+    text-align: center;
+}
+
+
+
+/* Стили для блока с названием свадьбы */
+.wedding-title {
+    text-align: left;
+    padding: 100px;
+    /*background-image: url('photo_2024-03-31_14-51-42.jpg');*/
+    background-color: #d9c9c9;
+    background-size: cover;
+    background-position: center;
+    /*margin-bottom: 150px;*/ /* Добавляем отступ снизу */
+    /*margin-top: 100px;*/
+}
+
+.wedding-title h1 {
+    font-family: 'Pacifico', cursive; /* Применяем шрифт Butterfly Kids */
+    font-weight: bold;
+    color: #000000;
+    font-size: 40px;
+}
+
+.wedding-title h1,
+.wedding-title p {
+    margin: 0;
+}
+
+/* Стили для блока с описанием свадьбы */
+.wedding-description {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 50px;
+    margin-top: 50px; /* Добавляем отступ сверху */
+}
+
+.wedding-description p {
+    margin-bottom: 10px;
+}
+
+.wedding-header {
+    text-align: left; /* Выравнивание текста влево */
+}
+
+
+
+/* Стили для блока с описанием места проведения */
+.venue-description {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.venue-description h2 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.venue-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.venue-photo {
+    flex-basis: 45%;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px; /* Добавляем отступ между блоками */
+}
+
+.venue-photo img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.venue-photo p {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 0;
+}
+
+/* Медиа-запросы для адаптивного дизайна */
+@media (max-width: 768px) {
+    .venue-section {
+        flex-direction: column; /* Располагаем элементы в столбец на узких экранах */
+        align-items: center; /* Выравниваем элементы по центру */
+    }
+
+    .venue-photo {
+        flex-basis: 100%; /* Блоки занимают всю доступную ширину */
+    }
+}
+
+
+
+/* Медиа-запросы для адаптивного дизайна */
+@media (max-width: 768px) {
+    .venue-row {
+        flex-direction: column; /* Расположение элементов в столбец на узких экранах */
+    }
+    .venue-photo {
+        margin-bottom: 20px; /* Отступ между фотографиями на узких экранах */
+        flex-basis: auto; /* Автоматический размер блока с фотографией */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Стили для блока с информацией о таймингах */
+.event-timings {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.event-timings h2 {
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.timing-row {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Равное расстояние между элементами */
+    margin-bottom: 10px; /* Отступ между рядами */
+}
+
+.time,
+.description {
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.time {
+    flex-basis: 50%; /* Ширина колонки time */
+}
+
+.description {
+    flex-basis: 50%; /* Ширина колонки description */
+    text-align: left; /* Выравниваем текст по левому краю */
+}
+
+.separator {
+    border-left: 1px solid #000;
+    height: 100%; /* Высота черты равна высоте ряда */
+    margin: 0 10px; /* Отступы между элементами */
+}
+
+
+@media (max-width: 768px) {
+    .time {
+        flex-basis: 20%; /* Ширина колонки time */
+    }
+
+    .description {
+        flex-basis: 80%; /* Ширина колонки description */
+        text-align: left; /* Выравниваем текст по левому краю */
+    }
+}
+
+
+
+
+
+
+/* Медиа-запросы для различных размеров экрана */
+
+@media (max-width: 768px) {
+    .login-form {
+        padding: 20px; /* Уменьшим отступы внутри формы на более узких экранах */
+    }
+}
+
+@media (max-width: 576px) {
+    .login-form {
+        width: 90%; /* Уменьшим ширину формы на самых узких экранах */
+    }
+}
+
+@media (max-width: 768px) {
+    .wedding-title {
+        text-align: left; /* Выравниваем текст по левому краю на мобильных устройствах */
+        padding-left: 10px; /* Убираем отступ слева на мобильных устройствах */
+        padding-top: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .venue-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .venue-section .venue-item {
+        margin: 10px; /* Добавляем отступы между картинками */
+    }
+}
